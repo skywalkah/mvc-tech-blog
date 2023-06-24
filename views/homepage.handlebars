@@ -1,0 +1,12 @@
+<div class="container">
+  <h1>All Posts</h1>
+  {{#each blogPosts}}
+    <div class="card">
+      <div class="card-body">
+        <h2><a href="/blogposts/post/{{this.id}}">{{this.title}}</a></h2>
+        <p class="card-text">{{this.contents}}</p>
+        <p class="card-text">By: {{this.user.username}}</p>
+      </div>
+    </div>
+  {{/each}}
+</div>

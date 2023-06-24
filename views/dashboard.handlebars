@@ -1,0 +1,21 @@
+<h1>Your dashboard</h1>
+
+{{#each blogPosts}}
+    <h2><a href="/blogposts/post/{{this.id}}">{{this.title}}</a></h2>
+    <button data-id="{{this.id}}" class="edit-btn">Edit</button>
+    <button data-id="{{this.id}}" class="delete-btn">Delete</button>
+{{/each}}
+
+<form id="new-blogpost-form">
+    <div>
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title">
+    </div>
+    <div>
+        <label for="contents">Contents:</label>
+        <textarea id="contents" name="contents"></textarea>
+    </div>
+    <button type="submit">Submit</button>
+</form>
+
+<script src="/js/dashboard.js"></script>

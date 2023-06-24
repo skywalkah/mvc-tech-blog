@@ -1,0 +1,12 @@
+<h1>Edit Blog Post</h1>
+<form action='/dashboard/update/{{blogPost.id}}' method='POST'>
+  <div>
+    <label for='title'>Title:</label>
+    <input type='text' id='title' name='title' value='{{blogPost.title}}' />
+  </div>
+  <div>
+    <label for='contents'>Contents:</label>
+    <textarea id='contents' name='contents'>{{blogPost.contents}}</textarea>
+  </div>
+  <button type='submit'>Update</button>
+</form>

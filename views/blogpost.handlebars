@@ -1,0 +1,32 @@
+<h1>{{blogPost.title}}</h1>
+<p>{{blogPost.contents}}</p>
+<p>Posted by: {{blogPost.user.username}}</p>
+<p>On: {{blogPost.date_created}}</p>
+
+<h2>Comments</h2>
+
+{{#each blogPost.comments}}
+  <p>{{this.comment_text}}</p>
+  <p>Commented by: {{this.user.username}}</p>
+  <p>On: {{this.date_created}}</p>
+{{/each}}
+
+{{#if logged_in}}
+  <form
+    id='new-comment-form'
+    action='/blogposts/post/{{blogPost.id}}/comments'
+    method='POST'
+  >
+    <div>
+      <label for='comment_text'>Add Comment:</label>
+      <textarea id='comment_text' name='comment_text'></textarea>
+    </div>
+    <input type='hidden' id='post_id' name='post_id' value='{{blogPost.id}}' />
+    <button type='submit'>Submit</button>
+  </form>
+{{else}}
+  <p>Please log in to add a comment.</p>
+{{/if}}
+
+
+<script src='/js/blogpost.js'></script>
