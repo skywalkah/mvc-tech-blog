@@ -4,15 +4,15 @@ const seedBlogPosts = require('./blogpostData');
 const seedComments = require('./commentData');
 
 const seedAll = async () => {
-    await sequelize.sync({ force: true });
+  await sequelize.sync({ force: true });
 
-    await seedUsers();
+  await seedUsers();
 
-    await seedBlogPosts();
+  await seedBlogPosts();
 
-    await seedComments();
+  await seedComments();
 
-    process.exit(0);
+  process.exit(0);
 };
 
 seedAll();

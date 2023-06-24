@@ -13,6 +13,11 @@ const PORT = process.env.PORT || 3001;
 const app = express();
 const hbs = exphbs.create();
 
+// Register helper function to format date as "MM/DD/YYYY"
+hbs.handlebars.registerHelper('formatDate', (date) => {
+  return new Date(date).toLocaleDateString();
+});
+
 const sessionConfig = {
   secret: process.env.SESSION_SECRET,
   cookie: {},

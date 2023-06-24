@@ -1,15 +1,25 @@
 <h1>{{blogPost.title}}</h1>
 <p>{{blogPost.contents}}</p>
 <p>Posted by: {{blogPost.user.username}}</p>
-<p>On: {{blogPost.date_created}}</p>
+<p>On: {{formatDate blogPost.date_created}}</p>
+
+{{#if logged_in}}
+  <button data-id="{{blogPost.id}}" class="edit-btn">Edit</button>
+  <button data-id="{{blogPost.id}}" class="delete-btn">Delete</button>
+{{/if}}
 
 <h2>Comments</h2>
 
-{{#each blogPost.comments}}
-  <p>{{this.comment_text}}</p>
-  <p>Commented by: {{this.user.username}}</p>
-  <p>On: {{this.date_created}}</p>
-{{/each}}
+
+{{#if blogPost.comments.length}}
+  {{#each blogPost.comments}}
+    <p>{{this.comment_text}}</p>
+    <p>Commented by: {{this.user.username}}</p>
+    <p>On: {{formatDate this.date_created}}</p>
+  {{/each}}
+{{else}}
+    <p>No comments yet</p>
+{{/if}}
 
 {{#if logged_in}}
   <form
@@ -27,6 +37,5 @@
 {{else}}
   <p>Please log in to add a comment.</p>
 {{/if}}
-
 
 <script src='/js/blogpost.js'></script>

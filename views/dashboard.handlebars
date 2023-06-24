@@ -1,12 +1,16 @@
 <h1>Your dashboard</h1>
 
-{{#each blogPosts}}
-    <h2><a href="/blogposts/post/{{this.id}}">{{this.title}}</a></h2>
-    <button data-id="{{this.id}}" class="edit-btn">Edit</button>
-    <button data-id="{{this.id}}" class="delete-btn">Delete</button>
-{{/each}}
+{{#if blogPosts.length}}
+    {{#each blogPosts}}
+        <h2><a href="/blogposts/post/{{this.id}}">{{this.title}}</a></h2>
+    {{/each}}
+{{else}}
+    <p>No posts yet</p>
+{{/if}}
 
-<form id="new-blogpost-form">
+<button id="show-new-post-form">Add new post</button>
+
+<form id="new-blogpost-form" style="display: none;">
     <div>
         <label for="title">Title:</label>
         <input type="text" id="title" name="title">
