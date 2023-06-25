@@ -2,7 +2,12 @@
 
 {{#if blogPosts.length}}
     {{#each blogPosts}}
-        <h2><a href="/blogposts/post/{{this.id}}">{{this.title}}</a></h2>
+        <h2>
+            <a href="/blogposts/post/{{this.id}}">
+                {{this.title}}
+                <span>{{formatDate this.date_created}}</span>
+            </a>
+        </h2>
     {{/each}}
 {{else}}
     <p>No posts yet</p>

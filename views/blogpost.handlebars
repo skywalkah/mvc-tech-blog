@@ -3,13 +3,13 @@
 <p>Posted by: {{blogPost.user.username}}</p>
 <p>On: {{formatDate blogPost.date_created}}</p>
 
-{{#if logged_in}}
+{{!// Only render edit and delete buttons if the logged in user is the author of the post}}
+{{#ifEquals blogPost.user.id logged_in_user_id}}
   <button data-id="{{blogPost.id}}" class="edit-btn">Edit</button>
   <button data-id="{{blogPost.id}}" class="delete-btn">Delete</button>
-{{/if}}
+{{/ifEquals}}
 
 <h2>Comments</h2>
-
 
 {{#if blogPost.comments.length}}
   {{#each blogPost.comments}}

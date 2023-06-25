@@ -4,8 +4,8 @@
     <div class="card">
       <div class="card-body">
         <h2><a href="/blogposts/post/{{this.id}}">{{this.title}}</a></h2>
+        <p class="card-text">Posted by {{this.user.username}} on {{formatDate this.date_created}} </p>
         <p class="card-text">{{this.contents}}</p>
-        <p class="card-text">By: {{this.user.username}}</p>
       </div>
     </div>
   {{/each}}

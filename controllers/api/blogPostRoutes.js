@@ -25,10 +25,36 @@ router.get('/post/:id', async (req, res) => {
 
     const blogPost = blogPostData.get({ plain: true });
 
-    res.render('blogpost', {
-      blogPost,
-      logged_in: req.session.logged_in,
+    res.json(blogPost);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+// Fetch all blog posts and their associated comments
+router.get('/', async (req, res) => {
+  try {
+    const blogPostData = await BlogPost.findAll({
+      include: [
+        {
+          model: Comment,
+          include: [User],
+        },
+        {
+          model: User,
+          attributes: ['username'],
+        },
+      ],
     });
+
+    if (!blogPostData) {
+      res.status(404).json({ message: 'No blog posts found!' });
+      return;
+    }
+
+    const blogPosts = blogPostData.map(post => post.get({ plain: true }));
+
+    res.json(blogPosts);
   } catch (err) {
     res.status(500).json(err);
   }

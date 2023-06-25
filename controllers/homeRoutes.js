@@ -29,7 +29,7 @@ router.get('/blogposts/post/:id', async (req, res) => {
       include: [
         {
           model: User,
-          attributes: ['username'],
+          attributes: ['username', 'id'], // also include 'id' to ensure it is available for the view
         },
         {
           model: Comment,
@@ -48,11 +48,13 @@ router.get('/blogposts/post/:id', async (req, res) => {
     res.render('blogpost', {
       blogPost,
       logged_in: req.session.logged_in,
+      logged_in_user_id: req.session.user_id // Pass the user ID
     });
   } catch (err) {
     res.status(500).json(err);
   }
 });
+
 
 router.get('/login', (req, res) => {
   if (req.session.logged_in) {

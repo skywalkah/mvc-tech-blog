@@ -18,6 +18,11 @@ hbs.handlebars.registerHelper('formatDate', (date) => {
   return new Date(date).toLocaleDateString();
 });
 
+// Helper method to compare the ids
+hbs.handlebars.registerHelper('ifEquals', function(arg1, arg2, options) {
+  return (arg1 === arg2) ? options.fn(this) : options.inverse(this);
+});
+
 const sessionConfig = {
   secret: process.env.SESSION_SECRET,
   cookie: {},
