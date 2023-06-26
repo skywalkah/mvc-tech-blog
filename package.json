@@ -7,7 +7,8 @@
     "dev": "nodemon server.js",
     "seed": "node seeds",
     "lint": "eslint --fix --ext .js .",
-    "test": "test"
+    "test": "test",
+    "start": "node server.js"
   },
   "author": "Lucas Schvindt",
   "license": "MIT",
