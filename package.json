@@ -2,6 +2,9 @@
   "name": "mvc-tech-blog",
   "version": "1.0.0",
   "description": "A CMS-style blog site, where developers can publish their blog posts and comment on other developers’ posts as well.",
+  "engines": {
+    "node": "19.9.0"
+  },
   "main": "server.js",
   "scripts": {
     "dev": "nodemon server.js",
