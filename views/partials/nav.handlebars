@@ -1,10 +1,32 @@
-<nav>
-    <a href="/">Home</a>
-  {{#if logged_in}}
-    <a href="/dashboard">Dashboard</a>
-    <a href="/logout">Logout</a>
-  {{else}}
-    <a href="/login">Login</a>
-    <a href="/signup">Sign Up</a>
-  {{/if}}
+<nav class="navbar is-transparent my-3 " role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item logo is-size-2 has-text-light pl-1" href="/">
+      The Tech Blog
+    </a>
+
+    <a role="button" class="navbar-burger mt-3" data-target="navMenu" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+    
+  </div>
+
+  <div id="navMenu" class="navbar-menu">
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <div class="buttons">
+          {{#if logged_in}}
+            <a href="/dashboard" class="button is-light is-outlined">Dashboard</a>
+            <a href="/logout" class="button dark is-outlined ">Logout</a>
+          {{else}}
+            <a href="/login" class="button  is-light is-outlined">Login</a>
+            <a href="/signup" class="button dark is-outlined">
+              <strong>Sign up</strong>
+            </a>
+          {{/if}}
+        </div>
+      </div>
+    </div>
+  </div>
 </nav>

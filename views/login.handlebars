@@ -1,9 +1,19 @@
-<h1>Login</h1>
-<form action="/login" method="POST" id="login-form">
-  <input type="text" name="username" placeholder="Username" id="username">
-  <input type="password" name="password" placeholder="Password" id="password">
-  <button type="submit">Log In</button>
+<h1 class="title is-3">Login</h1>
+<form action="/login" method="POST" id="login-form" class="box">
+  <div class="field">
+    <label class="label">Username</label>
+    <div class="control">
+      <input type="text" name="username" placeholder="Username" id="username" class="input">
+    </div>
+  </div>
+  <div class="field">
+    <label class="label">Password</label>
+    <div class="control">
+      <input type="password" name="password" placeholder="********" id="password" class="input">
+    </div>
+  </div>
   <p id="error-message" style="color: red;"></p>
+  <button type="submit" class="button action">Log In</button>
+  <a href="/signup" class="button is-text has-text-grey-light" >Sign up instead?</a>
 </form>
-<p><a href="/signup">Sign up instead?</a></p>
 <script src="/js/login.js"></script>

@@ -1,12 +1,17 @@
-<div class="container">
-  <h1>All Posts</h1>
-  {{#each blogPosts}}
+<div class="columns is-multiline">
+{{#each blogPosts}}
+  <div class="column is-half">
     <div class="card">
-      <div class="card-body">
-        <h2><a href="/blogposts/post/{{this.id}}">{{this.title}}</a></h2>
-        <p class="card-text">Posted by {{this.user.username}} on {{formatDate this.date_created}} </p>
-        <p class="card-text">{{this.contents}}</p>
+      <div class="card-content">
+        <div class="content">
+          <a href="/blogposts/post/{{this.id}}">
+            <h2 class="title is-3 mb-3">{{this.title}}</h2>
+            <p class="subtitle mt-0">{{this.contents}}</p>
+            <span class="tag">Posted by {{this.user.username}} on {{formatDate this.date_created}} </span>
+          </a>
+        </div>
       </div>
     </div>
-  {{/each}}
+  </div>
+{{/each}}
 </div>

@@ -1,12 +1,38 @@
-<h1>Edit Blog Post</h1>
-<form action='/dashboard/update/{{blogPost.id}}' method='POST'>
-  <div>
-    <label for='title'>Title:</label>
-    <input type='text' id='title' name='title' value='{{blogPost.title}}' />
+<nav class='breadcrumb' aria-label='breadcrumbs'>
+  <ul>
+    <li><a href='/' class="has-text-grey-light"><ion-icon name="home"></ion-icon></a></li>
+    <li><a href='/blogposts/post/{{blogPost.id}}' class="has-text-grey-light">{{blogPost.title}}</a></li>
+    <li class='is-active'><a href='#' aria-current='page' class="has-text-grey-lighter">edit</a></li>
+  </ul>
+</nav>
+<div class='card'>
+  <div class='card-content'>
+    <div class='content'>
+      <h1 class='title is-3'>Edit Blog Post</h1>
+      <form action='/dashboard/update/{{blogPost.id}}' method='POST'>
+        <div class='field'>
+          <label for='title' class='label'>Title:</label>
+          <input
+            type='text'
+            id='title'
+            name='title'
+            value='{{blogPost.title}}'
+            class="input" 
+          />
+        </div>
+        <div class='field'>
+          <label for='contents' class='label'>Contents:</label>
+          <textarea
+            id='contents'
+            name='contents'
+            class="textarea" 
+          >{{blogPost.contents}}</textarea>
+        </div>
+        <button
+          type='submit'
+          class='edit-btn button action'
+        >Update</button>
+      </form>
+    </div>
   </div>
-  <div>
-    <label for='contents'>Contents:</label>
-    <textarea id='contents' name='contents'>{{blogPost.contents}}</textarea>
-  </div>
-  <button type='submit'>Update</button>
-</form>
+</div>

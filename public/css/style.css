@@ -1,0 +1,195 @@
+:root {
+    --lightBgr: #510a32;
+    --darkerBgr: #2d142c;
+    --dark: #180b18;
+    --secondary: #801336;
+    --tertiary: #c72c41;
+    --white: hsl(0, 0%, 90%);
+    --action: #ee4540;
+    --actionHover: #c72c41;
+}
+html {
+    background: var(--lightBgr);  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, var(--darkerBgr), var(--lightBgr));  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, var(--darkerBgr), var(--lightBgr)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    height: 100%;
+}
+.navbar-burger span {
+    background-color: var(--white);
+}
+.navbar-menu.is-active {
+    max-width: 300px;
+    position: absolute;
+    right: 0;
+    border-radius: 6px;
+}
+.navbar-menu.is-active:after {
+    background-color: #fff;
+    top: -69px;
+    content: '';
+    display: block;
+    height: 10px;
+    left: 86%;
+    position: relative;
+    -ms-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    width: 10px;
+    z-index: 1;
+}
+.navbar-menu.is-active .button.is-light.is-outlined {
+    border-color: var(--dark);
+    color: var(--dark);
+}
+body {
+    min-height: 100vh;
+}
+.modal-background {
+    background-color: rgba(45, 20, 44, .8);
+    backdrop-filter: blur(6px);
+}
+nav.navbar.is-transparent {
+    background-color: transparent;
+}
+.logo {
+    font-family: 'Bungee Inline', cursive;
+}
+@media screen and (max-width: 480px) {
+    .navbar-item.logo {
+        font-size: 1.5rem !important;
+    }
+    .navbar-burger.mt-3 {
+        margin-top: 0.1rem !important;
+    }
+}
+.breadcrumb ul {
+    align-items: center;
+}
+.container {
+    padding-left: 32px;
+    padding-right: 32px;
+}
+.card,
+.box {
+    color: var(--white);
+    background-color: var(--dark);
+}
+.card p,
+.box p,  
+.card .title,
+.box .title,
+.card .subtitle,
+.box .subtitle,
+.card .tag,
+.box .tag,
+.label,
+.title,
+.input,
+.textarea {
+    color: var(--white);
+}
+.textarea,
+.input {
+    background-color: var(--darkerBgr);
+    border: 0;
+}
+.card .tag,
+.box .tag {
+    background-color: var(--lightBgr);
+    color: var(--white);
+}
+.content .title,
+.box .wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+.box .title.is-5 {
+    margin-bottom: 0;
+}
+.border-above {
+    border-top: 1px solid var(--lightBgr);
+}
+.content a {
+    display: block;
+}
+.navbar-item img {
+    width: 200px;
+    height: auto;
+    max-height: initial;
+}
+#error-message {
+    margin-bottom: 20px;
+}
+::-webkit-input-placeholder {
+    color: var(--white) !important;
+    opacity: .5;
+}
+::-moz-placeholder {
+    color:var(--white) !important;
+    opacity: .5;
+}
+::-ms-placeholder {
+    color:var(--white) !important;
+    opacity: .5;
+}
+::placeholder {
+    color:var(--white) !important;
+    opacity: .5;
+}
+/*-- Buttons --*/
+button,
+.button {
+  transition: 0.2s;
+}
+button.action,
+.button.action,
+button.action:hover,
+.button.action:hover,
+button.dark,
+.button.dark,
+button.dark:hover,
+.button.dark:hover,
+button.secondary,
+.button.secondary,
+button.secondary:hover,
+.button.secondary:hover {
+    color: var(--white);
+    border-color: transparent;
+}
+button.action,
+.button.action {
+    background-color: var(--action);
+}
+button.action:hover,
+.button.action:hover {
+    background-color: var(--actionHover);
+}
+button.action:hover,
+.button.action:hover {
+    background-color: var(--actionHover);
+}
+button.action.is-outlined,
+.button.action.is-outlined {
+    background-color: transparent;
+    border-color: var(--action);
+}
+button.action.is-outlined:hover,
+.button.action.is-outlined:hover {
+    background-color: var(--action);
+    border-color: var(--action);
+}
+button.secondary,
+.button.secondary {
+    background-color: var(--lightBgr);
+}
+button.dark,
+.button.dark {
+    background-color: var(--dark);
+}
+.button.is-text.has-text-grey-light:hover {
+    background-color: transparent;
+    border: 1px solid var(--white);
+}
+ion-icon {
+    pointer-events: none;
+}

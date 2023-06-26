@@ -1,41 +1,54 @@
-<h1>{{blogPost.title}}</h1>
-<p>{{blogPost.contents}}</p>
-<p>Posted by: {{blogPost.user.username}}</p>
-<p>On: {{formatDate blogPost.date_created}}</p>
+<nav class="breadcrumb" aria-label="breadcrumbs">
+  <ul>
+    <li><a href='/' class="has-text-grey-light"><ion-icon name="home"></ion-icon></a></li>
+    <li class="is-active"><a href="#" aria-current="page" class="has-text-grey-lighter">{{blogPost.title}}</a></li>
+  </ul>
+</nav>
+<div class="card">
+  <div class="card-content">
+    <div class="content">
+      <h1 class="title is-3">
+        {{blogPost.title}}
+        <span class="tag">Posted by {{blogPost.user.username}} on {{formatDate blogPost.date_created}}</span>
+      </h1>
+      <p>{{blogPost.contents}}</p>
+      
 
-{{!// Only render edit and delete buttons if the logged in user is the author of the post}}
-{{#ifEquals blogPost.user.id logged_in_user_id}}
-  <button data-id="{{blogPost.id}}" class="edit-btn">Edit</button>
-  <button data-id="{{blogPost.id}}" class="delete-btn">Delete</button>
-{{/ifEquals}}
+      {{!// Only render edit and delete buttons if the logged in user is the author of the post}}
+      {{#ifEquals blogPost.user.id logged_in_user_id}}
+        <button data-id="{{blogPost.id}}" class="edit-btn button secondary"><ion-icon name="create-outline"><span class="is-sr-only">Edit</span></ion-icon></button>
+        <button data-id="{{blogPost.id}}" class="delete-btn button secondary"><ion-icon name="trash-outline"><span class="is-sr-only">Delete</span></ion-icon></button>
+      {{/ifEquals}}
 
-<h2>Comments</h2>
+      <h2 class="subtitle is-5 mb-4 pt-5 border-above">Comments</h2>
 
-{{#if blogPost.comments.length}}
-  {{#each blogPost.comments}}
-    <p>{{this.comment_text}}</p>
-    <p>Commented by: {{this.user.username}}</p>
-    <p>On: {{formatDate this.date_created}}</p>
-  {{/each}}
-{{else}}
-    <p>No comments yet</p>
-{{/if}}
+      {{#if blogPost.comments.length}}
+        {{#each blogPost.comments}}
+          <p>{{this.comment_text}}</p>
+          <p class="tag">Comment by {{this.user.username}} on {{formatDate this.date_created}}</p>
+        {{/each}}
+      {{else}}
+        <p>No comments yet</p>
+      {{/if}}
 
-{{#if logged_in}}
-  <form
-    id='new-comment-form'
-    action='/blogposts/post/{{blogPost.id}}/comments'
-    method='POST'
-  >
-    <div>
-      <label for='comment_text'>Add Comment:</label>
-      <textarea id='comment_text' name='comment_text'></textarea>
+      {{#if logged_in}}
+        <form
+          id='new-comment-form'
+          action='/blogposts/post/{{blogPost.id}}/comments'
+          method='POST'
+        >
+          <div class='field'>
+            <label class='label' for='comment_text'>Add Comment:</label>
+            <textarea id='comment_text' name='comment_text' class="textarea"></textarea>
+          </div>
+          <input type='hidden' id='post_id' name='post_id' value='{{blogPost.id}}' />
+          <button type='submit' class="button action">Submit</button>
+        </form>
+      {{else}}
+        <p>Please log in to add a comment.</p>
+      {{/if}}
     </div>
-    <input type='hidden' id='post_id' name='post_id' value='{{blogPost.id}}' />
-    <button type='submit'>Submit</button>
-  </form>
-{{else}}
-  <p>Please log in to add a comment.</p>
-{{/if}}
+  </div>
+</div>
 
 <script src='/js/blogpost.js'></script>
