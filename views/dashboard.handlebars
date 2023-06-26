@@ -1,53 +1,59 @@
 <nav class='breadcrumb' aria-label='breadcrumbs'>
   <ul>
-    <li><a href='/' class="has-text-grey-light"><ion-icon name='home'></ion-icon></a></li>
-    <li class='is-active'><a href='#' aria-current='page' class="has-text-grey-lighter">Dashboard</a></li>
+    <li><a href='/'><ion-icon name='home'></ion-icon></a></li>
+    <li class='is-active'><a href='#' aria-current='page' >Dashboard</a></li>
   </ul>
 </nav>
-<h1 class='title is-3 has-text-grey-lighter'>Your dashboard</h1>
 
-{{#if blogPosts.length}}
-  {{#each blogPosts}}
-    <div class='box'>
-        <a href='/blogposts/post/{{this.id}}' class="wrapper">
-          <h2 class='title is-5'>{{this.title}}</h2>
-          <span class="tag">Posted on {{formatDate this.date_created}}</span>
-        </a>
-      </h2>
-    </div>
-  {{/each}}
-{{else}}
-  <p class="mb-5 has-text-grey-light">Such empty... go ahead and create a post!</p>
-{{/if}}
-
-<button class='js-modal-trigger button action' data-target='modal-js-example'>
-  Create new post
-</button>
-<div id='modal-js-example' class='modal'>
-  <div class='modal-background'></div>
-
-  <div class='modal-content'>
-    <div class='box'>
-        <h2 class='title is-4'>Create a new post</h2>
-      <form id="new-blogpost-form">
-        <div class="field">
-          <label class="label" for='title'>Title:</label>
-          <div class="control">
-            <input class="input" type='text' id='title' name='title' />
-          </div>
+<div class="card">
+  <div class="card-content">
+    <div class="content">
+      <h1 class='title is-3 mb-3'>Your dashboard</h1>
+    {{#if blogPosts.length}}
+      {{#each blogPosts}}
+        <div class='box'>
+            <a href='/blogposts/post/{{this.id}}' class="wrapper">
+              <h2 class='title is-5'>{{this.title}}</h2>
+              <span class="tag">Posted on {{formatDate this.date_created}}</span>
+            </a>
+          </h2>
         </div>
-        <div class="field">
-          <label class="label" for='contents'>Contents:</label>
-          <div class="control">
-            <textarea id='contents' name='contents' class="textarea"></textarea>
-          </div>
+      {{/each}}
+    {{else}}
+      <p class="mb-5">Such empty... go ahead and create a post!</p>
+    {{/if}}
+
+    <button class='js-modal-trigger button action mt-3' data-target='modal-js-example'>
+      <ion-icon name="add-circle-outline" class="mr-2 m-l-2"></ion-icon> Create new post
+    </button>
+    <div id='modal-js-example' class='modal'>
+      <div class='modal-background'></div>
+
+      <div class='modal-content'>
+        <div class='box'>
+            <h2 class='title is-4'>Create a new post</h2>
+          <form id="new-blogpost-form">
+            <div class="field">
+              <label class="label" for='title'>Title:</label>
+              <div class="control">
+                <input class="input" type='text' id='title' name='title' />
+              </div>
+            </div>
+            <div class="field">
+              <label class="label" for='contents'>Contents:</label>
+              <div class="control">
+                <textarea id='contents' name='contents' class="textarea"></textarea>
+              </div>
+            </div>
+            <button type='submit' class="button action">Submit</button>
+          </form>
         </div>
-        <button type='submit' class="button action">Submit</button>
-      </form>
+      </div>
+
+      <button class='modal-close is-large' aria-label='close'></button>
     </div>
   </div>
-
-  <button class='modal-close is-large' aria-label='close'></button>
 </div>
+
 
 <script src='/js/dashboard.js'></script>

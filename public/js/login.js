@@ -13,7 +13,9 @@ const loginFormHandler = async (event) => {
     });
 
     if (response.ok) {
-      document.location.replace('/dashboard');
+      setTimeout(() => {
+        document.location.replace('/dashboard');
+      }, 1000);
     } else {
       const errorData = await response.json();
       errorMessage.textContent = errorData.message || 'Failed to log in';

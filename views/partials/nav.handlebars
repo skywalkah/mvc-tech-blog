@@ -1,7 +1,7 @@
 <nav class="navbar is-transparent my-3 " role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
-    <a class="navbar-item logo is-size-2 has-text-light pl-1" href="/">
-      The Tech Blog
+    <a class="navbar-item logo is-size-2 pl-1" href="/">
+      <ion-icon name="bug" class="mr-3"></ion-icon>  The Tech Blog
     </a>
 
     <a role="button" class="navbar-burger mt-3" data-target="navMenu" aria-label="menu" aria-expanded="false">
@@ -17,12 +17,12 @@
       <div class="navbar-item">
         <div class="buttons">
           {{#if logged_in}}
-            <a href="/dashboard" class="button is-light is-outlined">Dashboard</a>
-            <a href="/logout" class="button dark is-outlined ">Logout</a>
+            <a href="/dashboard" class="button dark">Dashboard</a>
+            <a href="/logout" class="button is-dark is-outlined">Logout</a>
           {{else}}
-            <a href="/login" class="button  is-light is-outlined">Login</a>
-            <a href="/signup" class="button dark is-outlined">
-              <strong>Sign up</strong>
+            <a href="/login" class="button dark is-outlined">Login</a>
+            <a href="/signup" class="button is-dark is-outlined">
+              Sign up
             </a>
           {{/if}}
         </div>
