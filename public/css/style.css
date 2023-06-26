@@ -130,7 +130,11 @@ label.label {
     font-weight: 500;
 }
 .textarea,
-.input {
+.input,
+#new-blogpost-form input,
+#new-blogpost-form .input,
+#new-blogpost-form textarea,
+#new-blogpost-form .textarea {
     background-color: var(--midBgr);
     border: 0;
 }
@@ -140,6 +144,9 @@ label.label {
     color: var(--greyText);
     font-weight: 400;
     border-radius: 15px;
+}
+.modal-content .box {
+    background-color: var(--white);
 }
 .content .title,
 .box .wrapper {
